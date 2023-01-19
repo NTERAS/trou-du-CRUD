@@ -1,12 +1,9 @@
-
-
 <?php
 session_start();
+
 function connect(){
     try {
         $db = new PDO('mysql:host=localhost;dbname=concierge', 'root', '');
-        // echo "succeed";
-        // print "succeed <br>";
         return $db;
         }
     catch (PDOException $e) {
@@ -53,11 +50,10 @@ function login(){
     //$user && password_verify($_POST['password'], $user['password_user'])
     //le mot de passe est alex
     //$user && password_verify(alex, $2y$10$6BcBM4oinhbyHIL09w.j/eIFwYkCc499VDIZIy7LJ1PRU4GO2ynQS])
-    if ($user && password_verify($_POST['password'], $user['password'])) {
-        echo "inside if";
+    if ($user && password_verify($_POST['password'], $user['password'])) 
+    {
         $_SESSION['nom_user'] = $user['nom']; 
         header('Location: interface.php');  
-        
     } else {
         echo 'Invalid username or password';
     }

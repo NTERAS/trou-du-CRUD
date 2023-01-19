@@ -15,7 +15,7 @@ if(isset($_GET["id"])){
     $result = $statement->fetch(PDO::FETCH_ASSOC);
     // print_r($result);
     $get_state = $result["state"];
-    echo $get_state;
+    // echo $get_state;
 
     if($get_state=="pas complet"){
         $get_state="complet!";
